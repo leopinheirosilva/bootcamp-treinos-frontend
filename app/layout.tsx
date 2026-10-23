@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Anton, Geist, Geist_Mono, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { Suspense } from "react";
+import { Chat } from "./_components/chat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,12 +33,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${interTight.variable} ${anton.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        <NuqsAdapter>{children}</NuqsAdapter>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${interTight.variable} ${anton.variable} h-full antialiased`}
+      >
+        <NuqsAdapter>
+          {children}
+          <Suspense>
+            <Chat />
+          </Suspense>
+        </NuqsAdapter>
       </body>
     </html>
   );
