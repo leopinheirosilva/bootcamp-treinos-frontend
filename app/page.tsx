@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
 import { authClient } from "./_lib/auth-client";
 import { redirect } from "next/navigation";
-import { getHomePageData } from "./_lib/api/fetch-generated";
+import { getHomePageData, getUserTrainData } from "./_lib/api/fetch-generated";
 import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,12 +20,21 @@ export default async function Home() {
   if (!session.data?.user) redirect("/auth");
 
   const today = dayjs();
-  const homeData = await getHomePageData(today.format("YYYY-MM-DD"));
+  const [homeData, trainData] = await Promise.all([
+    getHomePageData(today.format("YYYY-MM-DD")),
+    getUserTrainData(),
+  ]);
 
-  if (homeData.status !== 200) redirect("/auth");
+  if (homeData.status !== 200) {
+    throw new Error("Failed to fetch home data");
+  }
 
-  const { consistencyByDay, workoutStreak, todayWorkoutDay } = homeData.data;
+  const needsOnboarding =
+    !homeData.data.activeWorkoutPlanId ||
+    (trainData.status === 200 && !trainData.data);
+  if (needsOnboarding) redirect("/onboarding");
 
+  const { todayWorkoutDay, workoutStreak, consistencyByDay } = homeData.data;
   const userName = session.data.user.name?.split(" ")[0] ?? "";
 
   return (
