@@ -83,9 +83,9 @@ export default async function Home() {
           <h2 className="font-heading text-lg font-semibold text-foreground">
             Consistência
           </h2>
-          <button className="font-heading text-xs text-primary">
+          <Link href={"/stats"} className="font-heading text-xs text-primary">
             Ver histórico
-          </button>
+          </Link>
         </div>
 
         <div className="flex items-center gap-3">
@@ -110,9 +110,12 @@ export default async function Home() {
             <h2 className="font-heading text-lg font-semibold text-foreground">
               Treino de Hoje
             </h2>
-            <button className="font-heading text-xs text-primary">
+            <Link
+              href={`/workout-plans/${homeData.data.activeWorkoutPlanId}`}
+              className="font-heading text-xs text-primary"
+            >
               Ver treinos
-            </button>
+            </Link>
           </div>
 
           <Link
