@@ -17,10 +17,10 @@ export default async function AuthPage() {
     <div className="relative flex min-h-svh flex-col bg-black">
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <Image
-          src="/login-bg.png"
+          src="/login-bg-mobile.png"
           alt=""
           fill
-          className="object-cover"
+          className="object-contain"
           priority
         />
       </div>
