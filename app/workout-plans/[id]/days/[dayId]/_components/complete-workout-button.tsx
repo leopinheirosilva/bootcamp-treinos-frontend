@@ -28,7 +28,7 @@ export function CompleteWorkoutButton({
       variant="outline"
       onClick={handleComplete}
       disabled={isPending}
-      className="w-full rounded-full py-3 font-heading text-sm font-semibold"
+      className="w-full rounded-full py-3 font-heading text-sm font-semibold hover:cursor-pointer"
     >
       Marcar como concluído
     </Button>

@@ -23,7 +23,7 @@ export function LogoutButton() {
     <Button
       variant="ghost"
       onClick={handleLogout}
-      className="gap-2 text-destructive hover:text-destructive"
+      className="gap-2 text-destructive hover:text-destructive hover:cursor-pointer"
     >
       <span className="font-heading text-base font-semibold">
         Sair da conta
