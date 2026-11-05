@@ -28,7 +28,12 @@ export function ExerciseCard({ exercise }: ExerciseCardProps) {
         <span className="font-heading text-base font-semibold text-foreground">
           {exercise.name}
         </span>
-        <Button variant="ghost" size="icon" onClick={handleHelp}>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={handleHelp}
+          className="cursor-pointer"
+        >
           <CircleHelp className="size-5 text-muted-foreground" />
         </Button>
       </div>

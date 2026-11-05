@@ -30,7 +30,7 @@ export default async function StatsPage() {
   if (!session.data?.user) redirect("/auth");
 
   const today = dayjs();
-  const from = today.subtract(2, "month").startOf("month").format("YYYY-MM-DD");
+  const from = today.subtract(3, "month").startOf("month").format("YYYY-MM-DD");
   const to = today.endOf("month").format("YYYY-MM-DD");
 
   const [statsResponse, homeData, trainData] = await Promise.all([
@@ -81,7 +81,7 @@ export default async function StatsPage() {
           <StatsHeatmap consistencyByDay={consistencyByDay} today={today} />
 
           <div className="lg:flex lg:gap-10 lg:justify-center">
-            <div className="grid grid-cols-2 gap-3 lg:gap-10">
+            <div className="grid grid-cols-2 gap-3 lg:gap-10 py-5 lg:py-0">
               <StatCard
                 icon={CircleCheck}
                 value={String(completedWorkoutsCount)}

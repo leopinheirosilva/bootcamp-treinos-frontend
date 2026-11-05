@@ -256,7 +256,7 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
       />
 
       {/* Mobile: full overlay; Desktop: bottom-right panel */}
-      <div className="absolute inset-x-4 bottom-4 top-40 flex flex-col lg:inset-x-auto lg:bottom-6 lg:right-6 lg:top-6 lg:w-105">
+      <div className="absolute inset-x-4 bottom-4 top-40 flex flex-col lg:inset-x-auto lg:bottom-6 lg:right-6 lg:w-135 lg:h-[80%]">
         {chatContent}
       </div>
     </div>

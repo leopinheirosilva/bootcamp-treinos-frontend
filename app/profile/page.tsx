@@ -57,7 +57,7 @@ export default async function ProfilePage() {
       </div>
       <div className="w-full lg:mx-auto lg:max-w-2xl">
         <div className="flex flex-col items-center gap-5 px-5 pt-5">
-          <div className="flex w-full items-center justify-between">
+          <div className="flex w-full items-center justify-between lg:pb-10">
             <div className="flex items-center gap-3">
               <Avatar className="size-13">
                 <AvatarImage src={user.image ?? undefined} alt={user.name} />
@@ -77,7 +77,7 @@ export default async function ProfilePage() {
           </div>
 
           <div className="grid w-full grid-cols-2 gap-3 lg:flex lg:justify-around">
-            <div className="flex flex-col items-center gap-5 rounded-xl bg-primary/8 p-5">
+            <div className="flex flex-col items-center gap-5 rounded-xl bg-primary/8 p-5 lg:w-37.5">
               <div className="flex items-center rounded-full bg-primary/8 p-2.25">
                 <Weight className="size-4 text-primary" />
               </div>
@@ -91,7 +91,7 @@ export default async function ProfilePage() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-5 rounded-xl bg-primary/8 p-5">
+            <div className="flex flex-col items-center gap-5 rounded-xl bg-primary/8 p-5 lg:w-37.5">
               <div className="flex items-center rounded-full bg-primary/8 p-2.25">
                 <Ruler className="size-4 text-primary" />
               </div>
@@ -105,7 +105,7 @@ export default async function ProfilePage() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-5 rounded-xl bg-primary/8 p-5">
+            <div className="flex flex-col items-center gap-5 rounded-xl bg-primary/8 p-5 lg:w-37.5">
               <div className="flex items-center rounded-full bg-primary/8 p-2.25">
                 <BicepsFlexed className="size-4 text-primary" />
               </div>
@@ -119,7 +119,7 @@ export default async function ProfilePage() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-5 rounded-xl bg-primary/8 p-5">
+            <div className="flex flex-col items-center gap-5 rounded-xl bg-primary/8 p-5 lg:w-37.5">
               <div className="flex items-center rounded-full bg-primary/8 p-2.25">
                 <User className="size-4 text-primary" />
               </div>
