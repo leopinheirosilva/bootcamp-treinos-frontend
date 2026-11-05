@@ -2,7 +2,8 @@
 
 Frontend web da plataforma de treinos com inteligência artificial, desenvolvido para que os usuários possam gerar planos personalizados via assistente conversacional de IA, acompanhar a rotina diária de exercícios, registrar sessões e monitorar métricas corporais e de consistência.
 
-![screenshot da aplicação](public/home-banner.jpg)
+![screenshot 1 da aplicação](public/demo-1.png)
+![screenshot 2 da aplicação](public/demo-2.png)
 
 ## Tech Stack
 
@@ -43,6 +44,8 @@ Frontend web da plataforma de treinos com inteligência artificial, desenvolvido
   - Opção de encerramento seguro de sessão (*logout*).
 - **Interface Responsiva:**
   - Otimizada tanto para dispositivos móveis (com barra de navegação inferior `BottomNav`) quanto para desktop (com barra lateral retrátil `SidebarNav`).
+
+![screenshot 3 da aplicação](public/demo-3.png)
 
 ## Regras de Negócios e Fluxos
 
