@@ -30,7 +30,7 @@ export function WorkoutDayCard({
   const durationInMinutes = Math.round(estimatedDurationInSeconds / 60);
 
   return (
-    <div className="relative flex h-[200px] w-full flex-col items-start justify-between overflow-hidden rounded-xl p-5">
+    <div className="relative flex h-50 w-full flex-col items-start justify-between overflow-hidden rounded-xl p-5 lg:h-90 lg:rounded-2xl">
       {coverImageUrl && (
         <Image
           src={coverImageUrl}
@@ -49,7 +49,7 @@ export function WorkoutDayCard({
         </div>
       </div>
       <div className="relative flex flex-col gap-2">
-        <h3 className="font-heading text-2xl font-semibold leading-[1.05] text-background">
+        <h3 className="font-heading text-xl lg:text-2xl font-semibold leading-[1.05] text-background">
           {name}
         </h3>
         <div className="flex items-start gap-2">

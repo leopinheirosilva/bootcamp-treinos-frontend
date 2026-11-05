@@ -16,7 +16,7 @@ interface RestDayCardProps {
 
 export function RestDayCard({ weekDay }: RestDayCardProps) {
   return (
-    <div className="flex h-[110px] w-full flex-col items-start justify-between rounded-xl bg-muted p-5">
+    <div className="flex h-27.5 w-full flex-col items-start justify-between rounded-xl bg-muted p-5">
       <div className="flex items-center gap-1 rounded-full bg-foreground/8 px-2.5 py-1.5 backdrop-blur-sm">
         <Calendar className="size-3.5 text-foreground" />
         <span className="font-heading text-xs font-semibold uppercase text-foreground">

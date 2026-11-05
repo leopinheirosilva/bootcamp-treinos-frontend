@@ -20,7 +20,7 @@ export function StreakBanner({ workoutStreak }: StreakBannerProps) {
         />
       </div>
       <div className="relative flex flex-col items-center gap-3">
-        <div className="rounded-full border border-background/12 bg-background/12 p-3 backdrop-blur-[4px]">
+        <div className="rounded-full border border-background/12 bg-background/12 p-3 backdrop-blur-xs">
           <Flame className="size-8 text-background" />
         </div>
         <div className="flex flex-col items-center gap-1">

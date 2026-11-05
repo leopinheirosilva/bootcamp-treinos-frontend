@@ -12,7 +12,7 @@ export function ChatOpenButton() {
   return (
     <button
       onClick={() => setChatParams({ chat_open: true })}
-      className="rounded-full bg-primary p-4"
+      className="rounded-full bg-primary p-4 cursor-pointer"
     >
       <Sparkles className="size-6 text-primary-foreground" />
     </button>

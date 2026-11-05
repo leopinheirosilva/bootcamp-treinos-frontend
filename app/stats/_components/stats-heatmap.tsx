@@ -21,8 +21,11 @@ function getMonday(date: dayjs.Dayjs): dayjs.Dayjs {
   return date.subtract(day - 1, "day");
 }
 
-function buildMonthGroups(today: dayjs.Dayjs): MonthGroup[] {
-  const startOfRange = today.subtract(2, "month").startOf("month");
+function buildMonthGroups(
+  today: dayjs.Dayjs,
+  monthsBack: number,
+): MonthGroup[] {
+  const startOfRange = today.subtract(monthsBack, "month").startOf("month");
   const endOfRange = today.endOf("month");
 
   const firstMonday = getMonday(startOfRange);
@@ -76,16 +79,44 @@ function buildMonthGroups(today: dayjs.Dayjs): MonthGroup[] {
 }
 
 export function StatsHeatmap({ consistencyByDay, today }: StatsHeatmapProps) {
-  const monthGroups = buildMonthGroups(today);
+  const mobileMonthGroups = buildMonthGroups(today, 2);
+  const desktopMonthGroups = buildMonthGroups(today, 3);
 
   return (
-    <div className="flex gap-1 overflow-x-auto rounded-xl border border-border p-5">
+    <>
+      <HeatmapGrid
+        monthGroups={mobileMonthGroups}
+        consistencyByDay={consistencyByDay}
+        className="lg:hidden"
+      />
+      <HeatmapGrid
+        monthGroups={desktopMonthGroups}
+        consistencyByDay={consistencyByDay}
+        className="hidden lg:flex"
+      />
+    </>
+  );
+}
+
+function HeatmapGrid({
+  monthGroups,
+  consistencyByDay,
+  className,
+}: {
+  monthGroups: MonthGroup[];
+  consistencyByDay: GetStats200ConsistencyByDay;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`flex gap-3 overflow-x-auto rounded-xl border border-border p-5 ${className ?? ""}`}
+    >
       {monthGroups.map((group) => (
-        <div key={group.label} className="flex flex-col gap-1.5">
+        <div key={group.label} className="flex flex-1 flex-col gap-1.5 ">
           <p className="font-heading text-xs text-muted-foreground">
             {group.label}
           </p>
-          <div className="flex gap-1">
+          <div className="flex flex-1 justify-between lg:gap-2.5">
             {group.weeks.map((week) => {
               const weekKey = week.dates[0].format("YYYY-MM-DD");
               return (

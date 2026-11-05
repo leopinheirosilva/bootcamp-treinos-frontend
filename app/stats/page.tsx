@@ -9,6 +9,7 @@ import {
 import dayjs from "dayjs";
 import { CircleCheck, CirclePercent, Hourglass } from "lucide-react";
 import { BottomNav } from "@/app/_components/bottom-nav";
+import { SidebarNav } from "@/app/_components/sidebar-nav";
 import { StreakBanner } from "./_components/streak-banner";
 import { StatsHeatmap } from "./_components/stats-heatmap";
 import { StatCard } from "./_components/stats-card";
@@ -29,7 +30,7 @@ export default async function StatsPage() {
   if (!session.data?.user) redirect("/auth");
 
   const today = dayjs();
-  const from = today.subtract(2, "month").startOf("month").format("YYYY-MM-DD");
+  const from = today.subtract(3, "month").startOf("month").format("YYYY-MM-DD");
   const to = today.endOf("month").format("YYYY-MM-DD");
 
   const [statsResponse, homeData, trainData] = await Promise.all([
@@ -56,7 +57,9 @@ export default async function StatsPage() {
   } = statsResponse.data;
 
   return (
-    <div className="flex min-h-svh flex-col bg-background pb-24">
+    <div className="flex min-h-svh flex-col bg-background pb-24 lg:pl-64 lg:pb-8">
+      <SidebarNav activePage="stats" />
+
       <div className="flex h-14 items-center px-5">
         <p
           className="text-[22px] uppercase leading-[1.15] text-foreground"
@@ -65,36 +68,38 @@ export default async function StatsPage() {
           Fit.ai
         </p>
       </div>
-
-      <div className="px-5">
-        <StreakBanner workoutStreak={workoutStreak} />
-      </div>
-
-      <div className="flex flex-col gap-3 p-5">
-        <h2 className="font-heading text-lg font-semibold text-foreground">
-          Consistência
-        </h2>
-
-        <StatsHeatmap consistencyByDay={consistencyByDay} today={today} />
-
-        <div className="grid grid-cols-2 gap-3">
-          <StatCard
-            icon={CircleCheck}
-            value={String(completedWorkoutsCount)}
-            label="Treinos Feitos"
-          />
-          <StatCard
-            icon={CirclePercent}
-            value={`${Math.round(conclusionRate * 100)}%`}
-            label="Taxa de conclusão"
-          />
+      <div className="w-full lg:mx-auto lg:max-w-2xl">
+        <div className="px-5">
+          <StreakBanner workoutStreak={workoutStreak} />
         </div>
 
-        <StatCard
-          icon={Hourglass}
-          value={formatTotalTime(totalTimeInSeconds)}
-          label="Tempo Total"
-        />
+        <div className="flex flex-col gap-3 p-5">
+          <h2 className="font-heading text-lg font-semibold text-foreground">
+            Consistência
+          </h2>
+
+          <StatsHeatmap consistencyByDay={consistencyByDay} today={today} />
+
+          <div className="lg:flex lg:gap-10 lg:justify-center">
+            <div className="grid grid-cols-2 gap-3 lg:gap-10 py-5 lg:py-0">
+              <StatCard
+                icon={CircleCheck}
+                value={String(completedWorkoutsCount)}
+                label="Treinos Feitos"
+              />
+              <StatCard
+                icon={CirclePercent}
+                value={`${Math.round(conclusionRate * 100)}%`}
+                label="Taxa de conclusão"
+              />
+            </div>
+            <StatCard
+              icon={Hourglass}
+              value={formatTotalTime(totalTimeInSeconds)}
+              label="Tempo Total"
+            />
+          </div>
+        </div>
       </div>
 
       <BottomNav activePage="stats" />
