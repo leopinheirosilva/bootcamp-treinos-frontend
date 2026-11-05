@@ -84,7 +84,7 @@ export default async function WorkoutPlanPage({
       <SidebarNav activePage="calendar" />
 
       <div className="w-full lg:flex justify-between">
-        <div className="lg:w-[52%] pl-10">
+        <div className="lg:w-[52%] lg:pl-10">
           <div className="relative flex h-74 shrink-0 flex-col items-start justify-between overflow-hidden rounded-b-4xl px-5 pb-10 pt-5 lg:mt-5 lg:mx-5 lg:rounded-4xl">
             <div className="absolute inset-0" aria-hidden="true">
               <Image

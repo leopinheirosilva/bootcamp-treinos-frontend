@@ -49,7 +49,7 @@ export function WorkoutDayCard({
         </div>
       </div>
       <div className="relative flex flex-col gap-2">
-        <h3 className="font-heading text-2xl font-semibold leading-[1.05] text-background">
+        <h3 className="font-heading text-xl lg:text-2xl font-semibold leading-[1.05] text-background">
           {name}
         </h3>
         <div className="flex items-start gap-2">
