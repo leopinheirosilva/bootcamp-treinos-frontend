@@ -2,8 +2,7 @@
 
 Frontend web da plataforma de treinos com inteligência artificial, desenvolvido para que os usuários possam gerar planos personalizados via assistente conversacional de IA, acompanhar a rotina diária de exercícios, registrar sessões e monitorar métricas corporais e de consistência.
 
-![screenshot 1 da aplicação](public/demo-1.png)
-![screenshot 2 da aplicação](public/demo-2.png)
+![screenshot 1 da aplicação](public/demo-1.png) ![screenshot 2 da aplicação](public/demo-2.png)
 
 ## Tech Stack
 
@@ -26,22 +25,22 @@ Frontend web da plataforma de treinos com inteligência artificial, desenvolvido
 - **Assistente IA Integrado (Chat com Streaming):** Chat flutuante e responsivo para interagir com a IA, tirar dúvidas e solicitar a montagem ou ajuste de planos de treino em tempo real.
 - **Dashboard Principal:**
   - Visão imediata do treino do dia atual ou indicação de descanso.
-  - Contador de dias consecutivos de treino (*streak* com ícone de chama).
-  - Rastreador visual de consistência semanal (*Consistency Tracker*).
-  - Gaveta (*Sheet*) para inspeção rápida dos exercícios do dia selecionado.
+  - Contador de dias consecutivos de treino (_streak_ com ícone de chama).
+  - Rastreador visual de consistência semanal (_Consistency Tracker_).
+  - Gaveta (_Sheet_) para inspeção rápida dos exercícios do dia selecionado.
 - **Visualização de Planos de Treino:**
   - Grade completa dos 7 dias da semana (Segunda a Domingo).
-  - Diferenciação visual clara entre dias de treino ativo e dias de descanso (*Rest Day*).
+  - Diferenciação visual clara entre dias de treino ativo e dias de descanso (_Rest Day_).
 - **Execução e Acompanhamento de Treino:**
   - Detalhamento de cada exercício: grupos musculares, séries, repetições e tempo de descanso.
-  - Ações no servidor (*Server Actions*) para iniciar a sessão e registrar a conclusão com persistência em tempo real.
+  - Ações no servidor (_Server Actions_) para iniciar a sessão e registrar a conclusão com persistência em tempo real.
 - **Estatísticas e Consistência (Stats):**
   - Banner informativo de streak atual.
   - Heatmap trimestral de frequência de treinos por dia.
   - Cards com total de treinos concluídos e tempo total exercitado (convertido em horas e minutos).
 - **Perfil do Usuário:**
   - Exibição de avatar e dados cadastrados: peso (convertido para kg), altura (cm), percentual de gordura corporal (%) e idade.
-  - Opção de encerramento seguro de sessão (*logout*).
+  - Opção de encerramento seguro de sessão (_logout_).
 - **Interface Responsiva:**
   - Otimizada tanto para dispositivos móveis (com barra de navegação inferior `BottomNav`) quanto para desktop (com barra lateral retrátil `SidebarNav`).
 
@@ -50,18 +49,22 @@ Frontend web da plataforma de treinos com inteligência artificial, desenvolvido
 ## Regras de Negócios e Fluxos
 
 ### Proteção de Rotas e Redirecionamentos
+
 - **Não autenticado:** Tentativas de acesso a rotas privadas (`/`, `/workout-plans/*`, `/stats`, `/profile`, `/onboarding`) redirecionam o usuário para `/auth`.
 - **Já autenticado:** Usuários logados que tentam acessar `/auth` são redirecionados automaticamente para `/`.
 - **Pendência de Onboarding:** Se o usuário autenticado ainda não tiver perfil físico cadastrado ou não possuir um plano de treino ativo, é redirecionado automaticamente para a página `/onboarding`.
 
 ### Conversão e Formatação de Dados
+
 - **Peso Corporal:** Os valores recebidos da API em gramas (`weightInGrams`) são convertidos para quilogramas (`kg = weightInGrams / 1000`) para exibição no perfil.
 - **Duração de Treino:** A soma dos segundos registrados nas sessões é formatada no padrão legível `XhYYm` (ex: `2h15m`).
 
 ### Sincronização e Revalidação em Tempo Real
+
 - A inicialização e conclusão de treinos utilizam Server Actions (`startWorkoutAction` e `completeWorkoutAction`) combinadas com `revalidatePath`, garantindo que o dashboard, a lista de dias e o status do treino sejam atualizados sem requisições client-side manuais.
 
 ### Estado em URL com nuqs
+
 - Parâmetros como o dia selecionado (`?day=...`) ou abertura e mensagens iniciais do chat (`?chat_open=true&chat_initial_message=...`) são gerenciados via URL, permitindo links compartilháveis e navegação fluida com histórico do navegador.
 
 ## Instalação local
@@ -86,6 +89,7 @@ cp .env.example .env
 ```
 
 Configurações padrão:
+
 ```env
 NEXT_PUBLIC_API_URL="http://localhost:8080"
 NEXT_PUBLIC_BASE_URL="http://localhost:3000"
