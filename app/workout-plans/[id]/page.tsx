@@ -103,7 +103,7 @@ export default async function WorkoutPlanPage({
               />
             </div>
             <p
-              className="relative text-[22px] uppercase leading-[1.15] text-background"
+              className="relative text-[22px] uppercase leading-[1.15] text-white"
               style={{ fontFamily: "var(--font-anton)" }}
             >
               Fit.ai
@@ -114,7 +114,7 @@ export default async function WorkoutPlanPage({
                   <Goal className="size-4" />
                   {name}
                 </Badge>
-                <h1 className="font-heading text-2xl font-semibold leading-[1.05] text-background">
+                <h1 className="font-heading text-2xl font-semibold leading-[1.05] text-white">
                   Plano de Treino
                 </h1>
               </div>
@@ -128,7 +128,7 @@ export default async function WorkoutPlanPage({
             />
           </Suspense>
         </div>
-        <div className="sticky top-0 self-start hidden lg:flex h-svh w-[48%] items-center justify-center bg-primary/8">
+        <div className="sticky top-0 self-start hidden lg:flex h-svh w-[48%] items-center justify-center bg-black/10">
           <span className="text-center text-xl text-muted-foreground">
             selecione um dia
           </span>

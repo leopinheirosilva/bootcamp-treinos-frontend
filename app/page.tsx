@@ -87,16 +87,16 @@ export default async function Home({
             />
           </div>
 
-          <div className="relative flex justify-center lg:hidden">
+          <div className="relative flex justify-between w-full  lg:hidden">
             <Image src="/fit-ai-logo.svg" alt="FIT.AI" width={50} height={38} />
           </div>
 
           <div className="relative flex w-full items-end justify-between lg:flex-col lg:items-start lg:gap-7">
             <div className="flex flex-col gap-1.5">
-              <h1 className="font-heading text-2xl font-semibold leading-[1.05] text-background lg:text-3xl">
+              <h1 className="font-heading text-2xl font-semibold leading-[1.05] text-white lg:text-3xl">
                 Olá, {userName}
               </h1>
-              <p className="font-heading text-sm leading-[1.15] text-background/70">
+              <p className="font-heading text-sm leading-[1.15] text-white/70">
                 Bora treinar hoje?
               </p>
             </div>

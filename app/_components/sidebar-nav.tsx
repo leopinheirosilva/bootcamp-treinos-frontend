@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { ChatOpenButton } from "./chat-open-button";
 import { getHomePageData } from "@/app/_lib/api/fetch-generated";
 import dayjs from "dayjs";
+import { ThemeToggle } from "./theme-toggle";
 
 interface SidebarNavProps {
   activePage?: "home" | "calendar" | "stats" | "profile";
@@ -20,8 +21,22 @@ export async function SidebarNav({ activePage = "home" }: SidebarNavProps) {
 
   return (
     <aside className="hidden lg:flex lg:fixed lg:inset-y-0 lg:left-0 lg:w-64 lg:flex-col lg:border-r lg:border-border lg:bg-background lg:px-4 lg:py-8 lg:z-40">
-      <div className="mb-8 flex items-center px-3">
-        <Image src="/fit-ai-logo.svg" alt="FIT.AI" width={50} height={38} />
+      <div className="mb-8 flex items-center px-3 gap-5">
+        <Image
+          src="/fit-ai-logo-dark.svg"
+          alt="FIT.AI"
+          width={50}
+          height={38}
+          className="dark:hidden"
+        />
+        <Image
+          src="/fit-ai-logo.svg"
+          alt="FIT.AI"
+          width={50}
+          height={38}
+          className="hidden dark:block"
+        />
+        <ThemeToggle />
       </div>
 
       <nav className="flex flex-1 flex-col gap-1">

@@ -11,6 +11,7 @@ import { SidebarNav } from "@/app/_components/sidebar-nav";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Weight, Ruler, BicepsFlexed, User } from "lucide-react";
 import { LogoutButton } from "./_components/logout-button";
+import { ThemeToggle } from "../_components/theme-toggle";
 
 export default async function ProfilePage() {
   const session = await authClient.getSession({
@@ -74,6 +75,7 @@ export default async function ProfilePage() {
                 </p>
               </div>
             </div>
+            <ThemeToggle />
           </div>
 
           <div className="grid w-full grid-cols-2 gap-3 lg:flex lg:justify-around">

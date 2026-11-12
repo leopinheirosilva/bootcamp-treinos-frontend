@@ -105,12 +105,12 @@ export default async function WorkoutDayPage({
                 className="pointer-events-none object-cover"
               />
             )}
-            <div className="absolute inset-0 bg-foreground/40" />
+            <div className="absolute inset-0 bg-black/40" />
 
             <div className="relative">
               <div className="flex items-center gap-1 rounded-full bg-background/16 px-2.5 py-1.5 backdrop-blur-sm">
-                <Calendar className="size-3.5 text-background" />
-                <span className="font-heading text-xs font-semibold uppercase text-background">
+                <Calendar className="size-3.5 text-white" />
+                <span className="font-heading text-xs font-semibold uppercase text-white">
                   {WEEKDAY_LABELS[weekDay]}
                 </span>
               </div>
@@ -118,19 +118,19 @@ export default async function WorkoutDayPage({
 
             <div className="relative flex w-full items-end justify-between">
               <div className="flex flex-col gap-2">
-                <h2 className="font-heading text-2xl font-semibold leading-[1.05] text-background">
+                <h2 className="font-heading text-2xl font-semibold leading-[1.05] text-white">
                   {name}
                 </h2>
                 <div className="flex items-start gap-2">
                   <div className="flex items-center gap-1">
-                    <Timer className="size-3.5 text-background/70" />
-                    <span className="font-heading text-xs text-background/70">
+                    <Timer className="size-3.5 text-white/70" />
+                    <span className="font-heading text-xs text-white/70">
                       {durationInMinutes}min
                     </span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Dumbbell className="size-3.5 text-background/70" />
-                    <span className="font-heading text-xs text-background/70">
+                    <Dumbbell className="size-3.5 text-white/70" />
+                    <span className="font-heading text-xs text-white/70">
                       {exercises.length} exercícios
                     </span>
                   </div>
