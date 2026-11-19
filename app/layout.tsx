@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   title: "FIT.AI",
   description: "Gerenciador de treinos",
   icons: {
-    icon: "/public/favicon.svg",
+    icon: "FIT.svg",
   },
 };
 
