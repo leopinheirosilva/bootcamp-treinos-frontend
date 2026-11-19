@@ -21,7 +21,7 @@ export async function SidebarNav({ activePage = "home" }: SidebarNavProps) {
 
   return (
     <aside className="hidden lg:flex lg:fixed lg:inset-y-0 lg:left-0 lg:w-90 lg:flex-col lg:border-r lg:border-border lg:bg-background lg:px-4 lg:py-8 lg:z-40">
-      <div className="mb-8 flex items-center px-3 gap-5">
+      <div className="mb-8 flex justify-between items-center px-3 gap-5">
         <Image
           src="/fit-ai-logo-dark.svg"
           alt="FIT.AI"
