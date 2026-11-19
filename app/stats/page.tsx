@@ -12,7 +12,7 @@ import { BottomNav } from "@/app/_components/bottom-nav";
 import { SidebarNav } from "@/app/_components/sidebar-nav";
 import { StreakBanner } from "./_components/streak-banner";
 import { StatsHeatmap } from "./_components/stats-heatmap";
-import { StatCard } from "./_components/stats-card";
+import { StatsCard } from "../_components/stats-card";
 
 function formatTotalTime(totalSeconds: number): string {
   const hours = Math.floor(totalSeconds / 3600);
@@ -74,7 +74,7 @@ export default async function StatsPage() {
         </div>
 
         <div className="flex flex-col gap-3 p-5">
-          <h2 className="font-heading text-lg font-semibold text-foreground">
+          <h2 className="font-heading text-lg lg:text-xl font-semibold text-foreground">
             Consistência
           </h2>
 
@@ -82,18 +82,18 @@ export default async function StatsPage() {
 
           <div className="lg:flex lg:gap-10 lg:justify-center">
             <div className="grid grid-cols-2 gap-3 lg:gap-10 py-5 lg:py-0">
-              <StatCard
+              <StatsCard
                 icon={CircleCheck}
                 value={String(completedWorkoutsCount)}
                 label="Treinos Feitos"
               />
-              <StatCard
+              <StatsCard
                 icon={CirclePercent}
                 value={`${Math.round(conclusionRate * 100)}%`}
                 label="Taxa de conclusão"
               />
             </div>
-            <StatCard
+            <StatsCard
               icon={Hourglass}
               value={formatTotalTime(totalTimeInSeconds)}
               label="Tempo Total"

@@ -9,7 +9,7 @@ export function StreakBanner({ workoutStreak }: StreakBannerProps) {
   const isZero = workoutStreak === 0;
 
   return (
-    <div className="relative flex flex-col items-center justify-center gap-6 overflow-hidden rounded-xl px-5 py-10">
+    <div className="relative flex flex-col items-center justify-center gap-6 overflow-hidden rounded-xl px-5 py-10 lg:h-70">
       <div className="absolute inset-0" aria-hidden="true">
         <Image
           src="/stats-banner.png"

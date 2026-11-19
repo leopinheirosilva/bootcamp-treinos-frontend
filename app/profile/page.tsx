@@ -12,6 +12,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Weight, Ruler, BicepsFlexed, User } from "lucide-react";
 import { LogoutButton } from "./_components/logout-button";
 import { ThemeToggle } from "../_components/theme-toggle";
+import { StatsCard } from "../_components/stats-card";
 
 export default async function ProfilePage() {
   const session = await authClient.getSession({
@@ -56,7 +57,7 @@ export default async function ProfilePage() {
           Fit.ai
         </p>
       </div>
-      <div className="w-full lg:pl-30 lg:w-210">
+      <div className="w-full lg:pl-30 lg:w-250">
         <div className="flex flex-col items-center gap-5 px-5 pt-5">
           <div className="flex w-full items-center justify-between lg:pb-10">
             <div className="flex items-center gap-3">
@@ -84,61 +85,18 @@ export default async function ProfilePage() {
           </div>
 
           <div className="grid w-full grid-cols-2 gap-3 lg:flex lg:justify-around">
-            <div className="flex flex-col items-center gap-5 rounded-xl bg-primary/8 p-5 lg:w-37.5">
-              <div className="flex items-center rounded-full bg-primary/8 p-2.25">
-                <Weight className="size-4 text-primary" />
-              </div>
-              <div className="flex flex-col items-center gap-1.5">
-                <span className="font-heading text-2xl font-semibold leading-[1.15] text-foreground">
-                  {weightInKg ?? "-"}
-                </span>
-                <span className="font-heading text-xs uppercase leading-[1.4] text-muted-foreground">
-                  Kg
-                </span>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-5 rounded-xl bg-primary/8 p-5 lg:w-37.5">
-              <div className="flex items-center rounded-full bg-primary/8 p-2.25">
-                <Ruler className="size-4 text-primary" />
-              </div>
-              <div className="flex flex-col items-center gap-1.5">
-                <span className="font-heading text-2xl font-semibold leading-[1.15] text-foreground">
-                  {heightInCm ?? "-"}
-                </span>
-                <span className="font-heading text-xs uppercase leading-[1.4] text-muted-foreground">
-                  Cm
-                </span>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-5 rounded-xl bg-primary/8 p-5 lg:w-37.5">
-              <div className="flex items-center rounded-full bg-primary/8 p-2.25">
-                <BicepsFlexed className="size-4 text-primary" />
-              </div>
-              <div className="flex flex-col items-center gap-1.5">
-                <span className="font-heading text-2xl font-semibold leading-[1.15] text-foreground">
-                  {bodyFatPercentage != null ? `${bodyFatPercentage}%` : "-"}
-                </span>
-                <span className="font-heading text-xs uppercase leading-[1.4] text-muted-foreground">
-                  Gc
-                </span>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-5 rounded-xl bg-primary/8 p-5 lg:w-37.5">
-              <div className="flex items-center rounded-full bg-primary/8 p-2.25">
-                <User className="size-4 text-primary" />
-              </div>
-              <div className="flex flex-col items-center gap-1.5">
-                <span className="font-heading text-2xl font-semibold leading-[1.15] text-foreground">
-                  {age ?? "-"}
-                </span>
-                <span className="font-heading text-xs uppercase leading-[1.4] text-muted-foreground">
-                  Anos
-                </span>
-              </div>
-            </div>
+            <StatsCard
+              icon={Weight}
+              value={`${weightInKg ?? "-"}`}
+              label="Kg"
+            />
+            <StatsCard icon={Ruler} value={`${heightInCm ?? "-"}`} label="CM" />
+            <StatsCard
+              icon={BicepsFlexed}
+              value={`${bodyFatPercentage != null ? `${bodyFatPercentage}%` : "-"}`}
+              label="Gc"
+            />
+            <StatsCard icon={User} value={`${age ?? "-"}`} label="Anos" />
           </div>
 
           <div className="lg:hidden">

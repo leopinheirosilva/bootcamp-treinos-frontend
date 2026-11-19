@@ -121,7 +121,7 @@ export default async function Home({
 
         <div className="lg:w-[45%] lg:pt-10 space-y-10">
           <div className="flex flex-col gap-3 px-5 pt-5">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between lg:justify-start lg:gap-5">
               <h2 className="font-heading text-lg font-semibold text-foreground lg:text-xl">
                 Consistência
               </h2>
@@ -140,8 +140,8 @@ export default async function Home({
                 />
               </div>
               <div className="flex items-center gap-2 self-stretch rounded-2xl bg-streak/50 px-5 py-2">
-                <Flame className="size-5 text-streak-foreground" />
-                <span className="font-heading text-base font-semibold text-foreground">
+                <Flame className="size-5 lg:size-7 text-streak-foreground" />
+                <span className="font-heading text-base lg:text-xl font-semibold text-foreground">
                   {workoutStreak}
                 </span>
               </div>
@@ -149,7 +149,7 @@ export default async function Home({
           </div>
           {todayWorkoutDay && homeData.data.activeWorkoutPlanId && (
             <div className="flex flex-col gap-3 p-5">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between lg:justify-start lg:gap-5">
                 <h2 className="font-heading text-lg font-semibold text-foreground lg:text-xl">
                   Treino de Hoje
                 </h2>
