@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import { Dialog as DialogPrimitive } from "radix-ui";
 
 const SUGGESTED_MESSAGES = ["Monte meu plano de treino"];
 
@@ -91,8 +92,6 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  if (!embedded && !chatParams.chat_open) return null;
-
   const handleClose = () => {
     setChatParams({ chat_open: false, chat_initial_message: null });
   };
@@ -137,14 +136,16 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
             <Link href="/">Acessar FIT.AI</Link>
           </Button>
         ) : (
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={handleClose}
-            className="cursor-pointer"
-          >
-            <X className="size-6 text-foreground" />
-          </Button>
+          <DialogPrimitive.Close asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={handleClose}
+              className="cursor-pointer"
+            >
+              <X className="size-6 text-foreground" />
+            </Button>
+          </DialogPrimitive.Close>
         )}
       </div>
 
@@ -255,13 +256,27 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
     );
 
   return (
-    <div className="fixed inset-0 z-60">
-      <div className="absolute inset-0 bg-black/50" onClick={handleClose} />
-
-      {/* Mobile: full overlay; Desktop: bottom-right panel */}
-      <div className="absolute inset-x-4 bottom-4 top-40 flex flex-col lg:inset-x-auto lg:bottom-6 lg:left-6 lg:w-135 lg:h-[80%]">
-        {chatContent}
-      </div>
-    </div>
+    <DialogPrimitive.Root
+      open={chatParams.chat_open}
+      onOpenChange={(open) => {
+        if (!open) handleClose();
+      }}
+    >
+      <DialogPrimitive.Portal>
+        <DialogPrimitive.Overlay className="fixed inset-0 z-60 bg-black/50 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0" />
+        <DialogPrimitive.Content
+          aria-describedby={undefined}
+          className="fixed inset-x-4 bottom-4 top-40 z-60 flex flex-col outline-none data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0 lg:inset-x-auto lg:bottom-6 lg:left-6 lg:w-135 lg:h-[80%]"
+        >
+          <DialogPrimitive.Title className="sr-only">
+            Coach AI
+          </DialogPrimitive.Title>
+          <DialogPrimitive.Description className="sr-only">
+            Chat com o treinador virtual
+          </DialogPrimitive.Description>
+          {chatContent}
+        </DialogPrimitive.Content>
+      </DialogPrimitive.Portal>
+    </DialogPrimitive.Root>
   );
 }
