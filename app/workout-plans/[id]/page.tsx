@@ -83,8 +83,8 @@ export default async function WorkoutPlanPage({
     <div className="flex min-h-svh bg-background pb-24 lg:pl-64 lg:pb-8">
       <SidebarNav activePage="calendar" />
 
-      <div className="w-full lg:flex justify-between">
-        <div className="lg:w-[52%] lg:pl-10">
+      <div className="w-full lg:flex justify-between lg:pl-20">
+        <div className="lg:w-[60%] lg:pl-10">
           <div className="relative flex h-74 shrink-0 flex-col items-start justify-between overflow-hidden rounded-b-4xl px-5 pb-10 pt-5 lg:mt-5 lg:mx-5 lg:rounded-4xl">
             <div className="absolute inset-0" aria-hidden="true">
               <Image
@@ -128,9 +128,9 @@ export default async function WorkoutPlanPage({
             />
           </Suspense>
         </div>
-        <div className="sticky top-0 self-start hidden lg:flex h-svh w-[48%] items-center justify-center bg-black/10">
+        <div className="sticky top-0 self-start hidden lg:flex h-svh w-[45%] items-center justify-center bg-black/10">
           <span className="text-center text-xl text-muted-foreground">
-            selecione um dia
+            selecione um treino
           </span>
         </div>
       </div>

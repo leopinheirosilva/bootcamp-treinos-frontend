@@ -20,20 +20,20 @@ export async function SidebarNav({ activePage = "home" }: SidebarNavProps) {
       : null;
 
   return (
-    <aside className="hidden lg:flex lg:fixed lg:inset-y-0 lg:left-0 lg:w-64 lg:flex-col lg:border-r lg:border-border lg:bg-background lg:px-4 lg:py-8 lg:z-40">
+    <aside className="hidden lg:flex lg:fixed lg:inset-y-0 lg:left-0 lg:w-90 lg:flex-col lg:border-r lg:border-border lg:bg-background lg:px-4 lg:py-8 lg:z-40">
       <div className="mb-8 flex items-center px-3 gap-5">
         <Image
           src="/fit-ai-logo-dark.svg"
           alt="FIT.AI"
-          width={50}
-          height={38}
+          width={70}
+          height={58}
           className="dark:hidden"
         />
         <Image
           src="/fit-ai-logo.svg"
           alt="FIT.AI"
-          width={50}
-          height={38}
+          width={70}
+          height={58}
           className="hidden dark:block"
         />
         <ThemeToggle />
@@ -45,7 +45,7 @@ export async function SidebarNav({ activePage = "home" }: SidebarNavProps) {
           className={cn(
             "flex items-center gap-3 rounded-xl px-3 py-3 font-heading text-sm font-medium transition-colors",
             activePage === "home"
-              ? "bg-primary/10 text-foreground"
+              ? "bg-primary/5 text-foreground"
               : "text-muted-foreground hover:bg-muted hover:text-foreground",
           )}
         >

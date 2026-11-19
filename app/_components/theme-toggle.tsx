@@ -36,7 +36,7 @@ export const ThemeToggle = () => {
           ? "Alternar para tema claro"
           : "Alternar para tema escuro"
       }
-      className="rounded-2xl "
+      className="rounded-2xl hover:cursor-pointer"
     >
       {theme === "dark" ? (
         <SunIcon className="h-[1.2rem] w-[1.2rem]" />

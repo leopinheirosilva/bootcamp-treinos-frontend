@@ -68,12 +68,12 @@ export default async function Home({
     <div className="flex min-h-svh flex-col bg-background pb-24 lg:pl-64 lg:pb-0">
       <SidebarNav activePage="home" />
 
-      <div className="w-full lg:mx-auto lg:flex lg:content-between lg:p-5 lg:gap-7">
-        <div className="relative flex h-74 shrink-0 flex-col items-start justify-between overflow-hidden rounded-b-4xl px-5 pb-10 pt-5 lg:mt-5 lg:rounded-4xl lg:h-250 lg:w-[45%]">
+      <div className="w-full lg:mx-auto lg:flex lg:content-between lg:p-5 lg:gap-10 lg:pl-35">
+        <div className="relative flex h-74 shrink-0 flex-col items-start justify-between overflow-hidden rounded-b-4xl px-5 pb-10 pt-5 lg:mt-5 lg:rounded-4xl lg:h-245 lg:w-[45%]">
           <div className="absolute inset-0" aria-hidden="true">
             <Image
               src="/home-banner.jpg"
-              alt=""
+              alt="Banner da aplicação com imagem de homem treinando"
               fill
               className="object-cover"
               priority
@@ -91,7 +91,7 @@ export default async function Home({
             <Image src="/fit-ai-logo.svg" alt="FIT.AI" width={50} height={38} />
           </div>
 
-          <div className="relative flex w-full items-end justify-between lg:flex-col lg:items-start lg:gap-7">
+          <div className="relative flex w-full items-end justify-between lg:flex-col lg:items-start lg:gap-7 lg:p-5">
             <div className="flex flex-col gap-1.5">
               <h1 className="font-heading text-2xl font-semibold leading-[1.05] text-white lg:text-3xl">
                 Olá, {userName}
@@ -119,7 +119,7 @@ export default async function Home({
           </div>
         </div>
 
-        <div className="lg:w-[40%] lg:pt-10 space-y-10">
+        <div className="lg:w-[45%] lg:pt-10 space-y-10">
           <div className="flex flex-col gap-3 px-5 pt-5">
             <div className="flex items-center justify-between">
               <h2 className="font-heading text-lg font-semibold text-foreground lg:text-xl">
@@ -139,7 +139,7 @@ export default async function Home({
                   today={today}
                 />
               </div>
-              <div className="flex items-center gap-2 self-stretch rounded-xl bg-streak px-5 py-2">
+              <div className="flex items-center gap-2 self-stretch rounded-2xl bg-streak/50 px-5 py-2">
                 <Flame className="size-5 text-streak-foreground" />
                 <span className="font-heading text-base font-semibold text-foreground">
                   {workoutStreak}

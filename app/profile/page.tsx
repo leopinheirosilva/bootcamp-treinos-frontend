@@ -56,7 +56,7 @@ export default async function ProfilePage() {
           Fit.ai
         </p>
       </div>
-      <div className="w-full lg:mx-auto lg:max-w-2xl">
+      <div className="w-full lg:pl-30 lg:w-210">
         <div className="flex flex-col items-center gap-5 px-5 pt-5">
           <div className="flex w-full items-center justify-between lg:pb-10">
             <div className="flex items-center gap-3">
@@ -75,7 +75,12 @@ export default async function ProfilePage() {
                 </p>
               </div>
             </div>
-            <ThemeToggle />
+            <div className="lg:hidden">
+              <ThemeToggle />
+            </div>
+            <div className="hidden lg:block">
+              <LogoutButton />
+            </div>
           </div>
 
           <div className="grid w-full grid-cols-2 gap-3 lg:flex lg:justify-around">
@@ -136,7 +141,9 @@ export default async function ProfilePage() {
             </div>
           </div>
 
-          <LogoutButton />
+          <div className="lg:hidden">
+            <LogoutButton />
+          </div>
         </div>
       </div>
 

@@ -155,8 +155,8 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
             <div
               className={
                 message.role === "assistant"
-                  ? "rounded-xl bg-secondary p-3"
-                  : "rounded-xl bg-primary p-3"
+                  ? "rounded-2xl bg-secondary p-3 px-4"
+                  : "rounded-2xl bg-primary/60 p-3 px-4"
               }
             >
               {message.role === "assistant" ? (
@@ -197,7 +197,7 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
               <button
                 key={suggestion}
                 onClick={() => handleSuggestion(suggestion)}
-                className="whitespace-nowrap rounded-full bg-primary/10 px-4 py-2 font-heading text-sm text-foreground"
+                className="whitespace-nowrap rounded-full bg-primary/20 hover:bg-primary/25 p-4 px-5 font-heading text-sm text-foreground hover:cursor-pointer"
               >
                 {suggestion}
               </button>
@@ -219,7 +219,7 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
                     <Input
                       {...field}
                       placeholder="Digite sua mensagem"
-                      className="rounded-full border-border bg-secondary px-4 py-3 font-heading text-sm text-foreground placeholder:text-muted-foreground"
+                      className="rounded-full border-border bg-secondary p-5 font-heading text-sm text-foreground placeholder:text-muted-foreground"
                     />
                   </FormControl>
                 </FormItem>
@@ -229,7 +229,7 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
               type="submit"
               disabled={!form.watch("message").trim() || isLoading}
               size="icon"
-              className="size-10.5 shrink-0 rounded-full"
+              className="size-10.5 shrink-0 rounded-full hover:cursor-pointer"
             >
               <ArrowUp className="size-5" />
             </Button>
@@ -250,13 +250,10 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
 
   return (
     <div className="fixed inset-0 z-60">
-      <div
-        className="absolute inset-0 bg-foreground/30"
-        onClick={handleClose}
-      />
+      <div className="absolute inset-0 bg-black/50" onClick={handleClose} />
 
       {/* Mobile: full overlay; Desktop: bottom-right panel */}
-      <div className="absolute inset-x-4 bottom-4 top-40 flex flex-col lg:inset-x-auto lg:bottom-6 lg:right-6 lg:w-135 lg:h-[80%]">
+      <div className="absolute inset-x-4 bottom-4 top-40 flex flex-col lg:inset-x-auto lg:bottom-6 lg:left-6 lg:w-135 lg:h-[80%]">
         {chatContent}
       </div>
     </div>
